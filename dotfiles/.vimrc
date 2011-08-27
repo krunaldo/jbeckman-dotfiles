@@ -1,7 +1,10 @@
+let vimhome=$HOME."/.vim/"
+let backup_dir=vimhome."/backupfiles/"
+
 set nocompatible
 set writebackup	
 set backup
-set backupdir=~/.vim/backupfiles/
+set backupdir=backup_dir
 
 set backspace=indent,eol,start
 
@@ -130,4 +133,17 @@ endif
 :cnoremap <C-B> <Left>
 :cnoremap <Esc>b <S-Left>
 :cnoremap <Esc>f <S-Right>
+
+" Ensure that everything is A-OKAY
+
+" Create ~/.vim if it doesn't exist
+if ! isdirectory(vimhome)
+  call mkdir(vimhome, "", 0700)
+endif
+
+" Create backup directory
+if ! isdirectory(backup_dir)
+  call mkdir(backup_dir,  "", 0700)
+endif
+
 
