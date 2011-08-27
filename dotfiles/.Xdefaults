@@ -1,0 +1,46 @@
+XTerm*cursorBlink: false
+XTerm*scrollBar: false
+XTerm*foreground: white
+XTerm*background: black
+XTerm*popOnBell: true
+XTerm*visualBell: true
+XTerm*trimSelection: true
+XTerm*Utf8: 2
+XTerm*metaSendsEscape: true
+
+XTerm*waitForMap: true
+
+
+
+URxvt*color4:  #6666ff
+URxvt*color12: #aaaaff
+
+
+
+URxvt.termName:                         rxvt-unicode
+URxvt.background:                       black
+URxvt.cursorBlink:                      false
+URxvt.cursorColor:                      white
+URxvt.foreground:                       white
+URxvt.internalBorder:                   1
+URxvt.jumpScroll:                       true
+Rxvt.lineSpace:                         0
+URxvt.loginShell:                       false
+URxvt.matcher.button:                   1
+URxvt.meta8:                            false
+URxvt.pastableTabs:                     true
+URxvt.perl-ext-common:                  option-popup,selection-popup,matcher,selection
+URxvt.pointerBlank:                     true
+URxvt.pointerColor2:                    white
+URxvt.pointerColor:                     black
+URxvt.saveLines:                        1000
+URxvt.scrollBar:                        false
+URxvt.scrollTtyOutput:                  false
+URxvt.scrollstyle:                      plain
+URxvt.skipBuiltinGlyphs:                true
+URxvt.tripleclickwords:                 true
+URxvt.urlLauncher:                      open
+URxvt.utmpInhibit:                      true
+URxvt*utf8: 1
+URxvt*eightBitInput: false
+URxvt*metaSendsEscape: true
