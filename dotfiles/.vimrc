@@ -4,7 +4,7 @@ let backup_dir=vimhome."/backupfiles/"
 set nocompatible
 set writebackup	
 set backup
-set backupdir=~/.vim/backupfiles/
+let &backupdir=backup_dir
 
 set backspace=indent,eol,start
 
