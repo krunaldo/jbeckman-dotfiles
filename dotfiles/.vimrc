@@ -145,5 +145,3 @@ endif
 if ! isdirectory(backup_dir)
   call mkdir(backup_dir,  "", 0700)
 endif
-
-
