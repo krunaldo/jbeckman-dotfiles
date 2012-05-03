@@ -175,7 +175,7 @@ alias muttng="e=$TERM && export TERM=xterm-color && muttng && export TERM=$e"
 alias mutt="mutt -m maildir"
 alias emacs="if pgrep emacs; then emacsclient; else emacs -l ~/.emacs.el; fi"
 alias screen="screen -e '^oO'"
-
+alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
 
 # gnu aliases
 if $gnu; then 
