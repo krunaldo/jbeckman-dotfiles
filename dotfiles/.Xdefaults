@@ -29,7 +29,7 @@ URxvt.loginShell:                       false
 URxvt.matcher.button:                   1
 URxvt.meta8:                            false
 URxvt.pastableTabs:                     true
-URxvt.perl-ext-common:                  option-popup,selection-popup,matcher,selection
+URxvt.perl-ext-common:                  option-popup,selection-popup,selection,url-select
 URxvt.pointerBlank:                     true
 URxvt.pointerColor2:                    white
 URxvt.pointerColor:                     black
@@ -39,8 +39,11 @@ URxvt.scrollTtyOutput:                  false
 URxvt.scrollstyle:                      plain
 URxvt.skipBuiltinGlyphs:                true
 URxvt.tripleclickwords:                 true
-URxvt.urlLauncher:                      open
 URxvt.utmpInhibit:                      true
 URxvt*utf8: 1
 URxvt*eightBitInput: false
 URxvt*metaSendsEscape: true
+
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.urlLauncher:   google-chrome
+URxvt.underlineURLs: true

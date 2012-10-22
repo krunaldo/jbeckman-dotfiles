@@ -132,14 +132,17 @@ function §m {
 
 
 }
+
 # Named directories for projects
-hash -d srcs=~/src
-for src in ~srcs/*; do
+if test -d ~/src/ && [[ "$(ls -1 ~/src/ | wc -l)" != "0" ]]; then
+  hash -d srcs=~/src
+  for src in ~srcs/*; do
     test -f $src || hash -d -- "-$(basename $src)"="$src"
-done
-# Strange, seems to be some kind of scoping here causing src to be created
-# in the dir hash with the value of the last value of the for iterations src
-unset src 
+  done
+  # Strange, seems to be some kind of scoping here causing src to be created
+  # in the dir hash with the value of the last value of the for iterations src
+  unset src
+fi
 
 
 # Env variables
