@@ -130,8 +130,27 @@ function §m {
         v) cd app/views/;;
     esac
 
-
 }
+
+
+function _init-ssh-agent {
+  if ! which ssh-agent > /dev/null; then
+    return 1
+  fi
+
+  local lock_file=~/.ssh/zsh-ssh-agent
+
+  # Check if already running
+  if [ -e $lock_file ]; then
+    source $lock_file
+    kill -0 $SSH_AGENT_PID && test -e $SSH_AUTH_SOCK && return 0
+  fi
+
+  ssh-agent -t 36000 > $lock_file
+  source $lock_file
+}
+
+_init-ssh-agent
 
 # Named directories for projects
 if test -d ~/src/ && [[ "$(ls -1 ~/src/ | wc -l)" != "0" ]]; then
