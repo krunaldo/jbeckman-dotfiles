@@ -1,10 +1,12 @@
 let vimhome=$HOME."/.vim/"
 let backup_dir=vimhome."/backupfiles/"
+let swap_dir=vimhome."/swapdir/"
 
 set nocompatible
 set writebackup	
 set backup
 let &backupdir=backup_dir
+let &directory=swap_dir
 
 set backspace=indent,eol,start
 
@@ -144,4 +146,8 @@ endif
 " Create backup directory
 if ! isdirectory(backup_dir)
   call mkdir(backup_dir,  "", 0700)
+endif
+
+if ! isdirectory(swap_dir)
+  call mkdir(swap_dir,  "", 0700)
 endif
