@@ -34,6 +34,10 @@ if [ "$os" = "OpenBSD" ]; then
     os_prompt="$os $release"
 fi
 
+if [ "$os" = "Darwin" ]; then
+  os_prompt="Mac OS X $(sw_vers -productVersion)"
+fi
+
 if [[ "$terminfo[colors]" -ge 8 ]]; then
     colors
 fi
@@ -111,28 +115,6 @@ bindkey -e
 export WORDCHARS=''
 
 
-#  Handy functions for handling merb applications
-function §m {
-    [ $# -lt 1 ] && return 1
-    if [ $# -eq 1]; then # Assuming that we are the in project
-       p=$(hash -d -m '-*' | grep "$PWD" | cut -d = -f 1)
-       a=$1
-    else
-        p=$1
-        a=$2
-    fi
-
-    cd $p
-
-    case $a in
-        c) cd app/controllers/;;
-        m) cd app/model/;;
-        v) cd app/views/;;
-    esac
-
-}
-
-
 function _init-ssh-agent {
   if ! which ssh-agent > /dev/null; then
     return 1
@@ -169,7 +151,7 @@ export LC_CTYPE='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export BROWSER='firefox'
 export EDITOR='vim'
-export PATH='/usr/local/telenor/bin/:/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/usr/local/sbin/:/usr/local/libexec:/opt/bin:/opt/sbin:/var/lib/gems/1.8/bin/'
+export PATH="$HOME/bin:/usr/local/telenor/bin/:/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/usr/local/sbin/:/usr/local/libexec:/opt/bin:/opt/sbin:/var/lib/gems/1.8/bin/"
 export PAGER='less'
 export PYTHONSTARTUP=~/.pythonrc
 
