@@ -8,7 +8,8 @@ function open {
 }
 
 
-autoload colors terminfo
+autoload colors terminfo edit-command-line
+
 
 gnu=false
 os="$(uname -s)"
@@ -54,7 +55,7 @@ setopt prompt_subst
 
 # If this is an ssh-connection, then we should indicate it somehow
 if [ $SSH_CLIENT ]; then
-    remote_ps1_expansion="${RED}"
+    remote_ps1_expansion="${PR_RED}"
 else
     remote_ps1_expansion="${PR_NO_COLOUR}"
 fi
@@ -106,11 +107,18 @@ zstyle ':completion:*:*:kill*:*' menu yes select
 
 # History settings
 HISTFILE=~/.zsh_history
-HISTSIZE=3000
-SAVEHIST=3000
+HIST_LEX_WORDS=1
+HISTSIZE=30000
+SAVEHIST=30000
 
 #  EMACS-like bindings
 bindkey -e
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+bindkey '^Xe' edit-command-line
+
+
+
 # Makes the key bindings actually respect that / is a word boundary
 export WORDCHARS=''
 
@@ -177,7 +185,6 @@ alias p="ps aux | $PAGER"
 alias wyrd="e=$TERM   && xterm-color && wyrd && export TERM=$e"
 alias muttng="e=$TERM && export TERM=xterm-color && muttng && export TERM=$e"
 alias mutt="mutt -m maildir"
-alias emacs="if pgrep emacs; then emacsclient; else emacs -l ~/.emacs.el; fi"
 alias screen="screen -e '^oO'"
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
 
