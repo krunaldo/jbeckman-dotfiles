@@ -3,10 +3,6 @@ if [ $INSIDE_EMACS ]; then
     exec bash
 fi
 
-function open {
-  google-chrome $r
-}
-
 
 autoload colors terminfo edit-command-line
 
@@ -37,6 +33,7 @@ fi
 
 if [ "$os" = "Darwin" ]; then
   os_prompt="Mac OS X $(sw_vers -productVersion)"
+  export "PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 fi
 
 if [[ "$terminfo[colors]" -ge 8 ]]; then
@@ -85,6 +82,7 @@ setopt                \
 	CDABLEVARS          \
 	EXTENDED_GLOB       \
 	AUTO_LIST           \
+  INTERACTIVE_COMMENTS\
 	AUTO_MENU           \
 	AUTO_CD
 
@@ -159,7 +157,7 @@ export LC_CTYPE='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export BROWSER='firefox'
 export EDITOR='vim'
-export PATH="$HOME/bin:/usr/local/telenor/bin/:/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/usr/local/sbin/:/usr/local/libexec:/opt/bin:/opt/sbin:/var/lib/gems/1.8/bin/"
+export PATH="$HOME/bin:/usr/local/p1/bin/:/usr/local/go/bin/:/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/usr/local/sbin/:/usr/local/libexec:/opt/bin:/opt/sbin:/var/lib/gems/1.8/bin/"
 export PAGER='less'
 export PYTHONSTARTUP=~/.pythonrc
 
@@ -217,5 +215,8 @@ chpwd() {
 SDL_AUDIODRIVER=alsa
 export SDL_AUDIODRIVER
 
+test -f ~/perl5/perlbrew/etc/bashrc && source ~/perl5/perlbrew/etc/bashrc
 # Something might have changed our cwd, best to be on the safe side
 cd ~
+
+
